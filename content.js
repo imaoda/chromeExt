@@ -7,8 +7,14 @@ chrome.runtime.sendMessage({ greeting: "hello" }, function(response) {
 function init() {
   // 植入脚本
   let script = document.createElement("script");
-  script.src =
-    "//bapi.imaoda.com/script?domain=" +
-    encodeURIComponent(location.hostname + location.pathname);
-  document.body.append(script);
+  // 也可以直接 script src 形式插入，不过容易被 csp，下面这个方案有些也会把 ajsx csp 了
+  fetch(
+    "https://bapi.imaoda.com/script?domain=" +
+      encodeURIComponent(location.hostname + location.pathname)
+  )
+    .then(i => i.text())
+    .then(d => {
+      script.innerHTML = "\n" + d;
+      document.body.append(script);
+    });
 }
