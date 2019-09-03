@@ -1,0 +1,19 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true, // prettier 开关 (不管 eslint fix)
+  "[javascript]": {
+    "editor.formatOnSave": true
+  }, // 防止被全局覆盖  
+  "eslint.autoFixOnSave": true, // eslint 自动修复开关
+  "eslint.validate": [
+    "javascript",
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ]
+}
