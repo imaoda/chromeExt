@@ -16,4 +16,5 @@ function toggle(type) {
 domOn.onclick = () => toggle(true);
 domOff.onclick = () => toggle(false);
 
-bg.state.open ? (domOn.checked = true) : (domOff.checked = true);
+domOn.checked = !!bg.state.open;
+domOff.checked = !bg.state.open;
