@@ -1,0 +1,33 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+html, body, #app {
+  height: 400px;
+  width: 400px;
+  font-size: 18px;
+}
+button{
+  font-size: 18px;
+  padding: 10px;
+  margin: 10px;
+}
+#app{
+  padding: 10px;
+}
+.switch{
+  cursor: pointer;
+  color: yellow;
+  height: 40px;
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.2)
+}
+
+.switch-on{
+  background: green
+}

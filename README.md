@@ -1,12 +1,25 @@
 ## introduction
 
-A chrome extention for personal use
+谷歌插件模板，打造自己的高效办公工具，需配合 node 后端使用
+
+- 极强的扩展性
+- 能满足绝大多数插件应用场景
+- 清晰的结构
+- 可针对不同网站，生成不同的 popup
+- 可根据不同网站，注入不同的 content
+
+纯动态化方案，一旦有调整，无需更新 chrome 插件，只需简单调整后端 (node侧)，即可实时生效
+
+- popup 界面可后端控制
+- content 注入可后端控制
 
 ## get started
 
 #### popup
 
-用户界面仅保留插件开关，点击开关，会计入 storage
+用户界面保留插件开关，点击开关，会计入 storage
+
+可自定义命令(需后端配置)
 
 #### 配置 js
 

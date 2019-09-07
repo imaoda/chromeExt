@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <style>
-      button {
-        height: 30px;
-        width: 30px;
-        outline: none;
-      }
-    </style>
-  </head>
 
-  <body style="width: 200px; height: 200px">
-    <div style="text-align: right;">
-      开<input type="radio" id="on" value="on" name="kaiguan" />
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css">
+  <script src='vue.js'></script>
+</head>
 
-      关<input id="off" type="radio" value="off" name="kaiguan" />
-    </div>
-    <script src="popup.js"></script>
-  </body>
+<body>
+  <div id='app'>
+    <div>插件总开关</div>
+    <div :class='{"switch":true, "switch-on": open}' @click='toggle'>点我{{open?'关闭':'打开'}} </div>
+    <div v-if='commandList.length'>额外指令：</div>
+    <button @click='trigger(v.command)' v-for='(v,k) in commandList'>{{v.description||'无描述'}}</button>
+  </div>
+</body>
+<script src="popup.js"></script>
+<!-- 此处如需插入外链 js，则要添加 csp 规则 script-src https://*.imaoda.com 比如应用于一些动态化方案 -->
+
 </html>
