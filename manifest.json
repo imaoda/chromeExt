@@ -24,6 +24,7 @@
     }
   ],
   "browser_action": {
+    "default_title": "maoda的插件",
     "default_popup": "popup.html",
     "default_icon": {
       "32": "images/icon.png"
@@ -33,5 +34,14 @@
     "32": "images/icon.png"
   },
   "manifest_version": 2,
+  "commands": {
+    "demoCmd": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Space",
+        "mac": "Command+Shift+Space"
+      },
+      "description": "快捷键示例"
+    }
+  },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

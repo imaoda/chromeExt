@@ -41,5 +41,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   sendResponse(state.open); // 如需在异步中调用，则先 return true
 });
 
+// 响应页面在 manifest 里预设的快捷键，并发送命令给 content
+chrome.commands.onCommand.addListener(command => {
+  sendMsgToCurrentPage({ command }) // demoCmd
+});
 
+/**
+|--------------------------------------------------
+| 更多能力
+|--------------------------------------------------
+*/
+
+/**
+ * 根据快捷键，激活 tab https://developer.chrome.com/extensions/user_interface#commands
+ */
 
