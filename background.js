@@ -37,7 +37,7 @@ chrome.storage.sync.get(keys, data => {
 });
 
 // 被动回复 content.js
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   sendResponse(state.open); // 如需在异步中调用，则先 return true
 });
 
