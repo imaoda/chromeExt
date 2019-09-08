@@ -9,10 +9,22 @@
 
 <body>
   <div id='app'>
-    <div>插件总开关</div>
-    <div :class='{"switch":true, "switch-on": open}' @click='toggle'>点我{{open?'关闭':'打开'}} </div>
-    <div v-if='commandList.length'>额外指令：</div>
-    <button @click='trigger(v.command)' v-for='(v,k) in commandList'>{{v.description||'无描述'}}</button>
+    <div class="weui-cells__title">设置</div>
+    <div class="weui-cell weui-cell_switch">
+      <div class="weui-cell__bd">
+        插件开关
+      </div>
+      <div class="weui-cell__ft">
+        <input class="weui-switch" name="isMarry" :checked="open" type="checkbox" @click='toggle' />
+      </div>
+    </div>
+    <div class="weui-cells__title" v-if='commandList.length'>额外指令</div>
+    <div @click='trigger(v.command)' v-for='(v,k) in commandList' class="weui-cell weui-cell_access">
+      <div class="weui-cell__bd">
+        {{v.description||'无描述'}}
+      </div>
+      <div class="weui-cell__ft"></div>
+    </div>
   </div>
 </body>
 <script src="popup.js"></script>
