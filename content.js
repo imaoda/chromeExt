@@ -13,6 +13,10 @@ chrome.runtime.onMessage.addListener((requestMsg, sender, sendResponse) => {
       __chromeExt.${requestMsg.command}()
     }`;
     document.documentElement.appendChild(scriptDom);
+    // 执行完成后清理现场
+    setTimeout(() => {
+      document.documentElement.removeChild(scriptDom);
+    }, 1000);
   }
   /**
    * 注：content 里的 window 和 document 与原页面的是独立的，只在 dom 操作时候是对应相同的，因此需以 script 形式插入函数调用
