@@ -2,14 +2,14 @@
   "name": "imaoda-general",
   "version": "0.0.7",
   "description": "imaoda 全能插件，根据不同域名定制个性化服务",
-  "permissions": ["activeTab", "declarativeContent", "storage", "background"],
+  "permissions": ["activeTab", "storage", "background"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
+      "matches": ["<all_urls>"],
       "js": ["content.js"]
     }
   ],

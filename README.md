@@ -8,7 +8,7 @@
 - 可针对不同网站，生成不同的 popup
 - 可根据不同网站，注入不同的 content
 
-纯动态化方案，一旦有调整，无需更新 chrome 插件，只需简单调整后端 (node侧)，即可实时生效
+纯动态化方案，一旦有调整，无需更新 chrome 插件，只需简单调整后端 (node 侧)，即可实时生效
 
 - popup 界面可后端控制
 - content 注入可后端控制
@@ -26,3 +26,9 @@
 本方案完全依赖于后端配置，在 node 后端针对域名配置 script，即可生效
 
 比如想对包含 huiyi 的网址注入脚本，只需在 node 服务路径下 /static/chromes/huiyi/index.js 中写脚本内容即可
+
+#### 更新记录
+
+移除了 declarativeContent 权限
+
+`"matches": ["*://*/*"],` 改为 `"matches": ["*://*/*"],`
