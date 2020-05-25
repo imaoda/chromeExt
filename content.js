@@ -33,7 +33,7 @@ function sendCommandToHTML(str) {
     try {
       document.documentElement.removeChild(scriptDom);
     } catch (error) {}
-  }, 1000);
+  }, 200);
 }
 
 // 读取 storage
