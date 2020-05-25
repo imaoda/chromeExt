@@ -30,7 +30,9 @@ function sendCommandToHTML(str) {
   document.head.appendChild(scriptDom);
   // 执行完成后清理现场
   setTimeout(() => {
-    document.documentElement.removeChild(scriptDom);
+    try {
+      document.documentElement.removeChild(scriptDom);
+    } catch (error) {}
   }, 1000);
 }
 
