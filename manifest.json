@@ -1,7 +1,7 @@
 {
   "name": "imaoda-general",
   "version": "0.0.7",
-  "description": "imaoda 全能插件，根据不同域名定制个性化服务",
+  "description": "该插件会根据您访问的 url，提供个性化快捷键服务，用于提升效率；点击插件 icon，可以打开针对用户当前网站的快捷命令菜单；所有网站都配备的功能是请求代理功能，能自定义代理能容，便于web程序开发者进行开发调试；部分站点会配备一些额外的功能，比如一些便捷的跳转功能等；",
   "permissions": ["activeTab", "storage", "background"],
   "background": {
     "scripts": ["background.js"],
