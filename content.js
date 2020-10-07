@@ -41,26 +41,28 @@ chrome.storage.sync.get(["open"], (data) => {
   if (data.open) init();
 });
 
+function appendToDoc(source, content, async) {
+  const scrp = document.createElement("script");
+  if (source) scrp.setAttribute("src", source);
+  if (content) scrp.innerHTML = content;
+  if (async) {
+    scrp.setAttribute("async", "async");
+  }
+  document.head.appendChild(scrp);
+}
+
 function init() {
   // 拦截器部分，需要在页面初始化时直接插入
-  const script1 = document.createElement("script");
-  script1.setAttribute(
-    "src",
-    chrome.extension.getURL("umd/ajax-interceptor.js")
-  );
-  script1.setAttribute("async", "async"); // ！！！一定要带 async，否则拦截器代码会排到最后一个同步 script，此时接口可能已经发出去了，导致接口拦截器拦截不到一开始的几个请求
-  document.head.appendChild(script1);
+  appendToDoc(chrome.extension.getURL("umd/ajax-interceptor.js"), null, true); // ！！！一定要带 async，否则拦截器代码会排到最后一个同步 script，此时接口可能已经发出去了，导致接口拦截器拦截不到一开始的几个请求
 
   // console 里执行一样自由。无论是以 script src 的形式植入，还是 ajax 获取内容植入，都有可能被 csp 拦截
-  const script = document.createElement("script");
   fetch(
     "https://bapi.imaoda.com/script?domain=" +
       encodeURIComponent(location.hostname + location.pathname)
   )
     .then((i) => i.text())
     .then((d) => {
-      script.innerHTML = "\n" + d;
-      document.head.appendChild(script);
+      appendToDoc(null, "\n" + d);
     });
 }
 
