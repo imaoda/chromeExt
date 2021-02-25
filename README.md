@@ -32,3 +32,7 @@
 移除了 declarativeContent 权限
 
 `"matches": ["*://*/*"],` 改为 `"matches": ["*://*/*"],`
+
+#### 开发调试技巧
+
+打开 background 甚至可以打断点

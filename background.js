@@ -62,3 +62,19 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 /**
  * 根据快捷键，激活 tab https://developer.chrome.com/extensions/user_interface#commands
  */
+
+// 网络请求代理 参考 http://www.kkh86.com/it/chrome-extension-doc/extensions/webRequest.html#event-onBeforeRequest
+// chrome.webRequest.onBeforeRequest.addListener(
+//   function (details) {
+//     var matches = details.url.match(/vodka-l(.+)\.js/);
+//     if (matches) {
+//       var id = matches[1];
+//       return {
+//         redirectUrl: `https://h3.static.yximgs.com/udata/pkg/IS-DOCS-VODKA-FRAME/assets/js/editor-vodka-l${id}.js`,
+//       };
+//     }
+//   },
+//   { urls: ["*://h3.static.yximgs.com/*"] },
+//   ["blocking"]
+// );
+// 上面的方案对 .map 文件无效，另外，开这个特性需要加入 manifest.permissions 中加入     "webRequest", "webRequestBlocking"
