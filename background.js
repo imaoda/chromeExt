@@ -78,3 +78,4 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 //   ["blocking"]
 // );
 // 上面的方案对 .map 文件无效，另外，开这个特性需要加入 manifest.permissions 中加入     "webRequest", "webRequestBlocking"
+// 第三方插件，我们在 background 审查获取他们的源代码！！！！
